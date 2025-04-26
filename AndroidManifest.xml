@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    android:compileSdkVersion="34"
+    android:compileSdkVersionCodename="14"
+    package="com.oxxygenr.namusic"
+    platformBuildVersionCode="29"
+    platformBuildVersionName="10"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Allows the app to make use of foreground services. -->
+    <uses-permission
+        android:name="android.permission.FOREGROUND_SERVICE" />
+    <!-- Allows the app to read the contents of your shared storage. -->
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- Allows the app to write the contents of your shared storage. -->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- Allows the app to create network sockets and use custom network protocols. The browser and other applications provide means to send data to the internet, so this permission is not required to send data to the internet. -->
+    <uses-permission
+        android:name="android.permission.INTERNET" />
+    <!-- Allows the app to view information about network connections such as which networks exist and are connected. -->
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Allows the app to prevent the phone from going to sleep. -->
+    <uses-permission
+        android:name="android.permission.WAKE_LOCK" />
+    <!-- Allows an application to add Homescreen shortcuts without user intervention. -->
+    <uses-permission
+        android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <permission
+        android:name="com.oxxygenr.namusic.MUSIC_BROADCAST_PERMISSION"
+        android:protectionLevel="signature" />
+    <uses-permission
+        android:name="com.oxxygenr.namusic.MUSIC_BROADCAST_PERMISSION" />
+    <supports-screens
+        android:largeScreens="true"
+        android:xlargeScreens="true"
+        android:requiresSmallestWidthDp="320" />
+    <application
+        android:label="NaMusic"
+        android:icon="@mipmap/ic_launcher"
+        android:name="com.marverenic.music.JockeyApplication"
+        android:allowBackup="true"
+        android:supportsRtl="true"
+        android:fullBackupContent="false"
+        android:resizeableActivity="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:requestLegacyExternalStorage="true">
+        <activity
+            android:theme="@style/SplashTheme"
+            android:name="com.marverenic.music.ui.library.LibraryActivity"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity-alias
+            android:label="NaMusic"
+            android:name="com.marverenic.music.PlayWithJockey"
+            android:targetActivity="com.marverenic.music.ui.library.LibraryActivity">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.VIEW" />
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+                <category
+                    android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="file" />
+                <data
+                    android:scheme="content" />
+                <data
+                    android:scheme="http" />
+                <data
+                    android:scheme="https" />
+                <data
+                    android:mimeType="audio/*" />
+                <data
+                    android:mimeType="application/ogg" />
+                <data
+                    android:mimeType="application/x-ogg" />
+                <data
+                    android:mimeType="application/itunes" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:icon="@mipmap/ic_launcher_black"
+            android:name="com.marverenic.music.activity.LibraryActivity$Black"
+            android:enabled="false"
+            android:targetActivity="com.marverenic.music.ui.library.LibraryActivity">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN" />
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity-alias>
+        <activity-alias
+            android:icon="@mipmap/ic_launcher_grey"
+            android:name="com.marverenic.music.activity.LibraryActivity$Grey"
+            android:enabled="false"
+            android:targetActivity="com.marverenic.music.ui.library.LibraryActivity">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN" />
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity-alias>
+        <activity-alias
+            android:icon="@mipmap/ic_launcher_purple"
+            android:name="com.marverenic.music.activity.LibraryActivity$Purple"
+            android:enabled="false"
+            android:targetActivity="com.marverenic.music.ui.library.LibraryActivity">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN" />
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity-alias>
+        <activity-alias
+            android:icon="@mipmap/ic_launcher_blue"
+            android:name="com.marverenic.music.activity.LibraryActivity$Blue"
+            android:enabled="false"
+            android:targetActivity="com.marverenic.music.ui.library.LibraryActivity">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN" />
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity-alias>
+        <activity-alias
+            android:icon="@mipmap/ic_launcher_green"
+            android:name="com.marverenic.music.activity.LibraryActivity$Green"
+            android:enabled="false"
+            android:targetActivity="com.marverenic.music.ui.library.LibraryActivity">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN" />
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity-alias>
+        <activity-alias
+            android:icon="@mipmap/ic_launcher_yellow"
+            android:name="com.marverenic.music.activity.LibraryActivity$Yellow"
+            android:enabled="false"
+            android:targetActivity="com.marverenic.music.ui.library.LibraryActivity">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN" />
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity-alias>
+        <activity-alias
+            android:icon="@mipmap/ic_launcher_orange"
+            android:name="com.marverenic.music.activity.LibraryActivity$Orange"
+            android:enabled="false"
+            android:targetActivity="com.marverenic.music.ui.library.LibraryActivity">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN" />
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity-alias>
+        <activity-alias
+            android:icon="@mipmap/ic_launcher_red"
+            android:name="com.marverenic.music.activity.LibraryActivity$Red"
+            android:enabled="false"
+            android:targetActivity="com.marverenic.music.ui.library.LibraryActivity">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN" />
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity-alias>
+        <activity-alias
+            android:icon="@mipmap/ic_launcher"
+            android:name="com.marverenic.music.activity.LibraryActivity"
+            android:targetActivity="com.marverenic.music.ui.library.LibraryActivity">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN" />
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity-alias>
+        <activity
+            android:name="com.marverenic.music.ui.browse.MusicBrowserActivity" />
+        <activity
+            android:label="@string/header_search"
+            android:name="com.marverenic.music.ui.search.SearchActivity"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity-alias
+            android:label="NaMusic"
+            android:name="com.marverenic.music.SearchWithJockey"
+            android:targetActivity="com.marverenic.music.ui.search.SearchActivity">
+            <intent-filter>
+                <action
+                    android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH" />
+                <action
+                    android:name="android.intent.action.MEDIA_SEARCH" />
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity-alias>
+        <activity
+            android:name="com.marverenic.music.ui.library.playlist.contents.PlaylistActivity"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity
+            android:name="com.marverenic.music.ui.library.playlist.contents.AutoPlaylistActivity"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity
+            android:name="com.marverenic.music.ui.library.album.contents.AlbumActivity"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity
+            android:name="com.marverenic.music.ui.library.artist.contents.ArtistActivity"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity
+            android:name="com.marverenic.music.ui.library.genre.contents.GenreActivity"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity
+            android:name="com.marverenic.music.ui.library.playlist.contents.edit.AutoPlaylistEditActivity" />
+        <activity
+            android:name="com.marverenic.music.ui.about.AboutActivity" />
+        <activity
+            android:label="@string/header_settings"
+            android:name="com.marverenic.music.ui.settings.SettingsActivity"
+            android:screenOrientation="fullUser">
+            <intent-filter>
+                <action
+                    android:name=".PREFERENCES" />
+                <category
+                    android:name="android.intent.category.preference" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.marverenic.music.ui.settings.EqualizerActivity" />
+        <service
+            android:name="com.marverenic.music.player.PlayerService"
+            android:exported="false"
+            android:process=":player">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.marverenic.music.player.browser.JockeyBrowserService"
+            android:exported="true">
+            <intent-filter>
+                <action
+                    android:name="android.media.browse.MediaBrowserService" />
+            </intent-filter>
+        </service>
+        <receiver
+            android:label="@string/widget_square_name"
+            android:name="com.marverenic.music.widget.SquareWidget">
+            <intent-filter>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action
+                    android:name="marverenic.jockey.player.REFRESH" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/square_widget_info" />
+        </receiver>
+        <receiver
+            android:label="@string/widget_wide_name"
+            android:name="com.marverenic.music.widget.WideWidget">
+            <intent-filter>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action
+                    android:name="marverenic.jockey.player.REFRESH" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/wide_widget_info" />
+        </receiver>
+        <receiver
+            android:label="@string/widget_compact_name"
+            android:name="com.marverenic.music.widget.CompactWidget">
+            <intent-filter>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <intent-filter>
+                <action
+                    android:name="marverenic.jockey.player.REFRESH" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/compact_widget_info" />
+        </receiver>
+        <receiver
+            android:name="androidx.media.session.MediaButtonReceiver">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.marverenic.music.player.ServicePlayerController$Listener"
+            android:exported="false">
+            <intent-filter
+                android:priority="999">
+                <action
+                    android:name="marverenic.jockey.player.REFRESH" />
+                <action
+                    android:name="marverenic.jockey.player.INFO" />
+                <action
+                    android:name="marverenic.jockey.player.ERROR" />
+            </intent-filter>
+        </receiver>
+        <meta-data
+            android:name="com.google.android.gms.car.application"
+            android:resource="@xml/automotive_app_desc" />
+        <meta-data
+            android:name="com.google.android.gms.car.notification.SmallIcon"
+            android:resource="@drawable/ic_play_arrow_24dp" />
+        <meta-data
+            android:name="com.google.android.gms.car.application.theme"
+            android:resource="@style/CarTheme" />
+        <meta-data
+            android:name="com.bugsnag.android.API_KEY"
+            android:value="4a6636e5fb686502dde4c920c504b3c5" />
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="com.tbruyelle.rxpermissions.ShadowActivity"
+            android:launchMode="singleTop" />
+        <meta-data
+            android:name="com.bugsnag.android.BUILD_UUID"
+            android:value="222da3be-2ea9-48ce-a88f-3e585242da06" />
+        <meta-data
+            android:name="com.android.dynamic.apk.fused.modules"
+            android:value="base" />
+        <meta-data
+            android:name="com.android.vending.splits"
+            android:value="@xml/splits0" />
+    </application>
+</manifest>
